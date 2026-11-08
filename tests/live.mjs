@@ -6,14 +6,15 @@
  */
 import { mkdtempSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
-import { pathToFileURL } from 'node:url'
+import { dirname, join } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
-const HERE = new URL('..', import.meta.url)
+/** 仓库根目录：本文件在 tests/ 下。 */
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const home = mkdtempSync(join(tmpdir(), 'dct-live-'))
 process.env.DSH_HOME = home
 
-const host = await import(pathToFileURL(join(HERE.pathname.slice(1), 'index.js')).href)
+const host = await import(pathToFileURL(join(ROOT, 'index.js')).href)
 
 let route
 host.apply({

@@ -169,8 +169,18 @@ cat "$HOME/.dsh/coin-ticker.json"
 
 ```sh
 node --check index.js && node --check client.js   # 语法
-node tests/smoke.mjs                              # 无网络自检（需 react / react-dom）
-node tests/live.mjs                               # 真实网络：打印各标的当前价
+npm test                                          # = node tests/smoke.mjs，无网络自检
+npm run test:live                                 # 真实网络：打印各标的当前价
+```
+
+`smoke.mjs` 把三个交易所重定向到进程内的本地 HTTP 服务器（`DSH_COIN_TICKER_HOSTS`），不碰网络，覆盖：三源降级顺序、缓存复用、chunked 解码、429 识别、心跳落盘、代理优先级，以及浏览器半侧的注册/渲染/收起态。
+
+渲染用例需要 `react` / `react-dom`（默认找本包 `node_modules`）。没装则自动跳过渲染部分、只跑宿主半侧，并在结尾说明；也可以指到任意一份已有的 react：
+
+```sh
+npm i -D react@18 react-dom@18
+# 或复用别处装好的：
+DSH_COIN_TICKER_REACT=/path/to/node_modules npm test
 ```
 
 ## 已知限制
