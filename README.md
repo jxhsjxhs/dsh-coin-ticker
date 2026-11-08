@@ -39,15 +39,14 @@
 ## 安装
 
 ```sh
-# 从 GitHub
+# 从 GitHub（推荐，已验证）
 dsh plugin --profile web add github:jxhsjxhs/dsh-coin-ticker
-
-# 或从 npm
-dsh plugin --profile web add dsh-coin-ticker
 
 # 或本地目录（开发时）
 dsh plugin --profile web add /绝对路径/dsh-coin-ticker
 ```
+
+> 还没有发布到 npm，所以 `dsh plugin add dsh-coin-ticker` 现在会 404。仓库是纯 JS、无构建步骤，从 GitHub 装不需要任何构建授权。
 
 `dsh plugin` 会把包装进 `$DSH_HOME/profiles/<name>`，并**自动把它加入 profile 的 bundle 层栈**（因为本包的 `package.json` 声明了 `dsh.bundle.patch`）：
 
