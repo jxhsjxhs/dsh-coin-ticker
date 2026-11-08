@@ -51,6 +51,34 @@
       "inject": [
         "@deepseek-ai/dsh-client-ui-sidebar"
       ]
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0-0",
+      "node": ">=22.19"
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "dsh-coin-ticker",
+    "summary": "侧边栏行情卡片：BTC / ETH / SOL 的价格、24h 涨跌与迷你走势，点一下收成一枚小胶囊不占位置。零依赖、免密钥，自动适配系统代理。",
+    "categories": [
+      "行情",
+      "Web UI"
+    ],
+    "surfaces": [
+      "host",
+      "web"
+    ],
+    "compatibility": {
+      "dsh": ">=0.2.0-rc.1 <0.3.0-0",
+      "node": ">=22.19"
+    },
+    "permissions": {
+      "network": [
+        "https://www.okx.com",
+        "https://api.binance.com",
+        "https://api.coingecko.com"
+      ]
     }
   }
 }
