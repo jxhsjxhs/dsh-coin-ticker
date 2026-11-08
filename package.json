@@ -1,0 +1,56 @@
+{
+  "name": "dsh-coin-ticker",
+  "version": "0.1.1",
+  "description": "DSH 侧边栏行情卡片：BTC / ETH / SOL，可收成一枚小胶囊，零依赖零密钥。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "crypto",
+    "ticker",
+    "sidebar"
+  ],
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "https.mjs",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "tests"
+  ],
+  "scripts": {
+    "test": "node tests/smoke.mjs",
+    "test:live": "node tests/live.mjs"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxhsjxhs/dsh-coin-ticker.git"
+  },
+  "homepage": "https://github.com/jxhsjxhs/dsh-coin-ticker#readme",
+  "bugs": {
+    "url": "https://github.com/jxhsjxhs/dsh-coin-ticker/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}
