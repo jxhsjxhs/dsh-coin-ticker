@@ -40,7 +40,7 @@
 
 ```sh
 # 从 GitHub
-dsh plugin --profile web add github:<你的用户名>/dsh-coin-ticker
+dsh plugin --profile web add github:jxhsjxhs/dsh-coin-ticker
 
 # 或从 npm
 dsh plugin --profile web add dsh-coin-ticker
@@ -75,7 +75,7 @@ Error: ERR_PNPM_GIT_RESOLVE_FAILED
 
 ```sh
 HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
-  dsh plugin --profile web add github:<你的用户名>/dsh-coin-ticker
+  dsh plugin --profile web add github:jxhsjxhs/dsh-coin-ticker
 ```
 
 > **插件运行时不需要这个。** 行情请求走的是本插件自带的传输层，它会自己读系统代理（见下面「系统代理」一节），不受 `HTTPS_PROXY` 是否设置影响。
